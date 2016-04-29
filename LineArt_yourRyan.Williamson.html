@@ -1,0 +1,158 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0073)https://www.cs.unm.edu/~joel/cs105/src/LineArt_Ryan.Williamson.html -->
+<!DOCTYPE html PUBLIC "" ""><HTML><HEAD><META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+     <!--Replace the title with your name and something that tells
+    the viewer what the page is about.--> 
+    <TITLE>Ryan Williamson Line Drawing Animation:Lab 5</TITLE>
+<META charset="UTF-8">
+<SCRIPT src="processing.min.js"></SCRIPT>
+ 
+<META name="GENERATOR" content="MSHTML 11.00.10586.103"></HEAD> 
+<BODY>
+<H1>Ryan Williamson Line Drawing Animation:Lab 5</H1><CANVAS id="canvas"></CANVAS>
+<SCRIPT>
+    var canvas = document.getElementById("canvas");
+    var canvasWidth  = 600;
+    var canvasHeight = 600;
+    var processing = new Processing(canvas, function(processing)
+    {
+      processing.size(canvasWidth, canvasHeight);
+      processing.background(0xFFF);
+
+
+      // Changes API to use degrees rather than radians in rotate and arc.
+      var rotateFn = processing.rotate;
+      processing.rotate = function (angle)
+      {
+        rotateFn(processing.radians(angle));
+      };
+      var arcDeg = processing.arc;
+      processing.arc = function (x, y, w, h, s, e)
+      {
+        arcDeg(x, y, w, h, s * (Math.PI / 180), e * (Math.PI / 180));
+      };
+
+
+      with (processing)
+      {
+        //================ YOU MODIFY CODE IN THIS BLOCK =====================
+        var a = 0;
+        var b = 435;
+        var speed = 10;
+        strokeWeight(3);
+        var lineRed    = random(255);
+        var lineGreen  = random(255);
+        var lineBlue   = random(255);
+
+        var redChange   = random(6)-3;
+        var greenChange = random(6)-3;
+        var blueChange  = random(6)-3;
+        var white = color(225,255,255);
+        var black = color(0,0,0);
+        var red = color(255,0,0);
+
+        background(red);
+        var x=200;
+        var speedX=2;
+
+        draw = function ()
+        {
+
+          stroke(lineRed, lineGreen, lineBlue);
+          stroke(lineRed, lineGreen, lineBlue);
+          stroke(lineRed, lineGreen, lineBlue);
+
+          stroke(lineRed, lineGreen, lineBlue);
+          stroke(lineRed, lineGreen, lineBlue);
+          stroke(lineRed, lineGreen, lineBlue);
+
+          stroke(lineRed, lineGreen, lineBlue);
+          stroke(lineRed, lineGreen, lineBlue);
+          stroke(lineRed, lineGreen, lineBlue);
+
+          stroke(lineRed, lineGreen, lineBlue);
+          var x1 = a+canvasWidth/2;
+          var y1 = a;
+          var x2 = canvasWidth/2 - a;
+          var y2 = canvasHeight - a;
+          var x3 = a;
+          var y3 = canvasHeight/2 - a;
+          var x4 = canvasWidth - a;
+          line(x3, 0, 0, y1);
+          line(canvasWidth, y2, x4, canvasHeight);
+          line(x4, 0, canvasWidth, y1);
+          line(0, y2, x3, canvasHeight);
+
+          //eye
+
+          noFill();
+          line(100,b-a,500,b-a);
+          line(100, a+150, 500, a+150);
+          stroke(255,255,255);
+          fill(255,255,255);
+          ellipse(300,300,400,300);
+          stroke(lineRed,lineGreen,lineBlue);
+          fill(0,0,0);
+          ellipse(x,300,200,200);
+          fill(lineRed,lineGreen,lineRed);
+          strokeWeight();
+          fill(255,255,255);
+          noFill();
+          arc(300, 300, 600, 300+a, 1, 180);
+          arc(300, 300, 600, 300+a, -180, 0);
+
+          fill(lineRed,0,0);
+          ellipse(x,300,150,150);
+          fill(255,255,255);
+          ellipse(x,240,100,75);
+
+          x=x+speedX;
+          if (x > 400) {
+            speedX = -5;
+          }
+          if (x < 200) {
+            speedX = 5;
+          }
+
+
+          //upper lid
+          stroke(lineRed, lineGreen, lineBlue);
+
+          a += speed;
+          lineRed   += redChange;
+          lineGreen += greenChange;
+          lineBlue  += blueChange;
+
+          redChange   = bounceColorChange(lineRed, redChange);
+          greenChange = bounceColorChange(lineGreen, greenChange);
+          blueChange  = bounceColorChange(lineBlue, blueChange);
+
+          if (a > 300)
+          {
+            speed = -10;
+          }
+          else if (a < 0)
+          {
+            speed = 10;
+          }
+        };
+
+
+        bounceColorChange = function(brightness, currentChange)
+        {
+          if (brightness > 255) return -random(5);
+          if (brightness < 0)   return  random(5);
+          return currentChange;
+        };
+
+
+
+
+
+        //================ END OF MODIFY CODE BLOCK =====================
+      }
+      if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+</SCRIPT>
+ </BODY></HTML>
