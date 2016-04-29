@@ -81,7 +81,7 @@
     <table>
 <ol>
 
-    
+   <script src="processing.min.js"></script>
 
 <em>The Graphics</em><br>
 <table>
@@ -98,27 +98,23 @@
         var canvas = document.getElementById("canvas");
         var canvasWidth  = 600;
         var canvasHeight = 600;
-        var processing = new Processing(canvas, function(processing)
-        {
+        var processing = new Processing(canvas, function(processing) {
             processing.size(canvasWidth, canvasHeight);
             processing.background(0xFFF);
 
 
             // Changes API to use degrees rather than radians in rotate and arc.
             var rotateFn = processing.rotate;
-            processing.rotate = function (angle)
-            {
+            processing.rotate = function (angle) {
                 rotateFn(processing.radians(angle));
             };
             var arcDeg = processing.arc;
-            processing.arc = function (x, y, w, h, s, e)
-            {
+            processing.arc = function (x, y, w, h, s, e) {
                 arcDeg(x, y, w, h, s * (Math.PI / 180), e * (Math.PI / 180));
             };
 
 
-            with (processing)
-            {
+            with (processing) {
                 var slider1BendPoint = document.getElementById("slider1BendPoint");
                 var label1BendPoint = document.getElementById("label1BendPoint");
 
@@ -134,22 +130,22 @@
                 var theRed = random(255);
                 var redcolorChange = +2;
                 var bluecolorChange = +3;
-                var colorShift = color(10,50,100);
+                var colorShift = color(10, 50, 100);
 
                 var a = 0;
                 var b = 435;
                 var speed1 = 10;
                 strokeWeight(3);
-                var lineRed    = random(255);
-                var lineGreen  = random(255);
-                var lineBlue   = random(255);
+                var lineRed = random(255);
+                var lineGreen = random(255);
+                var lineBlue = random(255);
 
-                var white = color(225,255,255);
-                var black = color(0,0,0);
-                var red = color(255,0,0);
+                var white = color(225, 255, 255);
+                var black = color(0, 0, 0);
+                var red = color(255, 0, 0);
 
-                var x=200;
-                var speedX=2;
+                var x = 200;
+                var speedX = 2;
 
 
                 background(colorShift);
@@ -334,6 +330,9 @@
                         redcolorChange = 4;
                     }
                 }
+            }
+        });
+                </script>
 </table>
 
 <br><hr><br>
