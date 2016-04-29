@@ -86,7 +86,7 @@
 
 
 
-<em>Textbooks and Web Resources:</em><br>
+<em>The Graphics</em><br>
 <table>
     <canvas id="canvas"></canvas>
     <input id="slider1BendPoint" type = "range" min = 0" max = "100" step = "1" value = "0"/>
@@ -122,7 +122,6 @@
 
             with (processing)
             {
-                //================ YOU MODIFY CODE IN THIS BLOCK =====================
                 var slider1BendPoint = document.getElementById("slider1BendPoint");
                 var label1BendPoint = document.getElementById("label1BendPoint");
 
@@ -157,8 +156,7 @@
 
 
                 background(colorShift);
-                draw = function ()
-                {
+                draw = function () {
 
 
                     var bend1Value = Number(slider1BendPoint.value);
@@ -180,35 +178,35 @@
                     stroke(lineRed, lineGreen, lineBlue);
 
                     stroke(lineRed, lineGreen, lineBlue);
-                    var xPrime = a+canvasWidth/2;
+                    var xPrime = a + canvasWidth / 2;
                     var y1 = a;
-                    var x2 = canvasWidth/2 - a;
+                    var x2 = canvasWidth / 2 - a;
                     var y2 = canvasHeight - a;
                     var x3 = a;
-                    var y3 = canvasHeight/2 - a;
+                    var y3 = canvasHeight / 2 - a;
                     var x4 = canvasWidth - a;
 
 
                     //eye
-                    stroke(255,255,255);
-                    fill(255,255,255);
-                    ellipse(300,300,400,300);
-                    stroke(lineRed,lineGreen,lineBlue);
-                    fill(0,0,0);
-                    ellipse(x,300,200,200);
-                    fill(lineRed,lineGreen,lineRed);
+                    stroke(255, 255, 255);
+                    fill(255, 255, 255);
+                    ellipse(300, 300, 400, 300);
+                    stroke(lineRed, lineGreen, lineBlue);
+                    fill(0, 0, 0);
+                    ellipse(x, 300, 200, 200);
+                    fill(lineRed, lineGreen, lineRed);
                     strokeWeight();
-                    fill(255,255,255);
+                    fill(255, 255, 255);
                     noFill();
-                    arc(300, 300, 600, 300+a, 1, 180);
-                    arc(300, 300, 600, 300+a, -180, 0);
+                    arc(300, 300, 600, 300 + a, 1, 180);
+                    arc(300, 300, 600, 300 + a, -180, 0);
 
-                    fill(lineRed,0,0);
-                    ellipse(x,300,150,150);
-                    fill(255,255,255);
-                    ellipse(x,240,100,75);
+                    fill(lineRed, 0, 0);
+                    ellipse(x, 300, 150, 150);
+                    fill(255, 255, 255);
+                    ellipse(x, 240, 100, 75);
 
-                    x=x+speedX;
+                    x = x + speedX;
                     if (x > 400) {
                         speedX = -5;
                     }
@@ -219,12 +217,10 @@
 
                     a += speed1;
 
-                    if (a > 300)
-                    {
+                    if (a > 300) {
                         speed1 = -10;
                     }
-                    else if (a < 0)
-                    {
+                    else if (a < 0) {
                         speed1 = 10;
                     }
 
@@ -307,45 +303,37 @@
                     ellipse(400, 500, bend1Value, bend1Value);
                     x1 += speed;
 
-                    theBlue  += bluecolorChange;
+                    theBlue += bluecolorChange;
 
-                    if (x1 > canvasWidth)
-                    {
+                    if (x1 > canvasWidth) {
                         speed = -25;
                     }
-                    else if (x1 < 10)
-                    {
+                    else if (x1 < 10) {
                         speed = 5;
                     }
 
-                    if (x1 > canvasHeight)
-                    {
+                    if (x1 > canvasHeight) {
                         speed = -3;
                     }
-                    else if (x1 < 10)
-                    {
+                    else if (x1 < 10) {
                         speed = 3;
                     }
 
                     //bluecolorchange
-                    if (theBlue > 200)
-                    {
+                    if (theBlue > 200) {
                         bluecolorChange = -1
                     }
 
-                    else if (theBlue < 20)
-                    {
+                    else if (theBlue < 20) {
                         bluecolorChange = 2;
                     }
 
                     //redcolorchange
-                    if (theRed > 250)
-                    {
+                    if (theRed > 250) {
                         redcolorChange = -3
                     }
 
-                    else if (theRed < 10)
-                    {
+                    else if (theRed < 10) {
                         redcolorChange = 4;
                     }
                 }
