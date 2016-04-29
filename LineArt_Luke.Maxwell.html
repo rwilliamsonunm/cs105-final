@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Replace the title with your name and something that tells
+    the viewer what the page is about.-->
+    <title>Luke's Colored Line Spam</title>
+    <meta charset="UTF-8">
+    <script src="processing.min.js"></script>
+</head>
+<body>
+<h1>Luke's Colored Line Spam</h1>
+<canvas id="canvas"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var canvasWidth  = 600;
+    var canvasHeight = 400;
+    var processing = new Processing(canvas, function(processing)
+    {
+      processing.size(canvasWidth, canvasHeight);
+      processing.background(0xFFF);
+
+
+      // Changes API to use degrees rather than radians in rotate and arc.
+      var rotateFn = processing.rotate;
+      processing.rotate = function (angle)
+      {
+        rotateFn(processing.radians(angle));
+      };
+      var arcDeg = processing.arc;
+      processing.arc = function (x, y, w, h, s, e)
+      {
+        arcDeg(x, y, w, h, s * (Math.PI / 180), e * (Math.PI / 180));
+      };
+
+
+      with (processing)
+      {
+        //================ YOU MODIFY CODE IN THIS BLOCK =====================
+
+          var x1 = 0;
+          var x2 = canvasWidth;
+          var x3 = canvasHeight;
+          var x4 = 300;
+          var x5 = 200;
+          var x6 = canvasWidth;
+
+          var speed2 = 20;
+
+          strokeWeight(2);
+          var red    = color(255, 0, 0);
+          var blue = color(0, 0, 255);
+          var green  = color(0, 255, 0);
+          var white = color(240,240,240);
+          var Line1 = red;
+          var Line2 = green;
+          var Line3 = white;
+          var Line4 = blue;
+
+          var colorChange = -100;
+
+        background(5,5,5);
+        draw = function ()
+
+            //colored lines
+        {
+                stroke(Line3);
+                line(300,200, x1, 0);
+
+                stroke(Line3);
+                line(300,200, x1, canvasHeight);
+
+                stroke(Line2);
+                line(0, 200, x2, canvasHeight);
+
+                stroke(Line1);
+                line(canvasWidth, 200, x2, canvasHeight);
+
+                stroke(Line1);
+                line(0, 200, x2, 0);
+
+               stroke(Line2);
+               line(canvasWidth, 200, x2, 0);
+
+            x1 += speed2;
+            x2 -= speed2;
+            x3 += speed2;
+            x4 -= speed2;
+            x5 -= speed2;
+            x6 += speed2;
+
+//right circles
+            fill(0,0,0);
+            stroke (255,0,0);
+            ellipse(350, 200, 25,25);
+            stroke (0,0,250);
+            ellipse(400, 200, 50,50);
+            ellipse(400, 200, 25,25);
+            stroke (255,0,0);
+            ellipse(450, 200, 25,25);
+            stroke (0,0,250);
+            ellipse(500, 200, 25,25);
+            stroke (250,0,0);
+            ellipse(550, 200, 25,25);
+// left circles
+            stroke (255,0,0);
+            ellipse(250, 200, 25,25);
+            stroke (0,0,255);
+            ellipse(200, 200, 50,50);
+            ellipse(200, 200, 25,25);
+            stroke (255,0,0);
+            ellipse(150, 200, 25,25);
+            stroke (0,0,255);
+            ellipse(100, 200, 25,25);
+            stroke (255,0,0);
+            ellipse(50, 200, 25,25);
+        //=======================================================================
+            Line1 -= colorChange;
+            Line2 += colorChange;
+            Line3 += colorChange;
+
+        if (x1 > canvasWidth)
+        {
+          speed2 = -6;
+        }
+        else if (x1 < 0)
+        {
+          speed2 = 6;
+        }
+
+        if (Line1 > 255)
+        {
+          colorChange = -6;
+        }
+        else if (Line1 < 0)
+        {
+          colorChange = 6;
+        }
+      };
+
+
+
+
+        //================ END OF MODIFY CODE BLOCK =====================
+      }
+      if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+</script>
+</body>
+</html>
