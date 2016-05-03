@@ -3,7 +3,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <!--Replace the title with your name and something that tells
     the viewer what the page is about.-->
-    <title>Luke's Slider</title>
+    <title></title>
     <meta charset="UTF-8">
     <script src="processing.min.js"></script>
 <style type="text/css">@font-face {
@@ -76,6 +76,17 @@
             fill(white0);
             rect(50,100,500,200);
 
+           // imageload
+            // @pjs preload must be used to preload the image
+
+            /* @pjs preload="Digital Art Trio.png"; */
+
+            PImage b;
+
+            b = loadImage("Digital Art Trio.png");
+
+            image(b, 0, 0);
+
                 stroke(Line20);
                 line(0, 200, x20, canvasHeight);
 
@@ -128,7 +139,7 @@
         //================ END OF MODIFY CODE BLOCK =====================
       }
       if (typeof draw !== 'undefined') processing.draw = draw;
-    });
+    })
 </script>
 
 
