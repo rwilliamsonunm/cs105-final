@@ -39,20 +39,16 @@ http-equiv="X-UA-Compatible">
         //================ YOU MODIFY CODE IN THIS BLOCK =====================
         var a = 0;
         var b = 435;
-        var speed = 10;
+        var speed1 = 10;
         strokeWeight(3);
         var lineRed    = random(255);
         var lineGreen  = random(255);
         var lineBlue   = random(255);
 
-        var redChange   = random(6)-3;
-        var greenChange = random(6)-3;
-        var blueChange  = random(6)-3;
         var white = color(225,255,255);
         var black = color(0,0,0);
         var red = color(255,0,0);
 
-        background(red);
         var x=200;
         var speedX=2;
 
@@ -72,7 +68,7 @@ http-equiv="X-UA-Compatible">
           stroke(lineRed, lineGreen, lineBlue);
 
           stroke(lineRed, lineGreen, lineBlue);
-          var x1 = a+canvasWidth/2;
+          var xPrime = a+canvasWidth/2;
           var y1 = a;
           var x2 = canvasWidth/2 - a;
           var y2 = canvasHeight - a;
@@ -115,26 +111,17 @@ http-equiv="X-UA-Compatible">
             speedX = 5;
           }
 
-
           //upper lid
           stroke(lineRed, lineGreen, lineBlue);
-
-          a += speed;
-          lineRed   += redChange;
-          lineGreen += greenChange;
-          lineBlue  += blueChange;
-
-          redChange   = bounceColorChange(lineRed, redChange);
-          greenChange = bounceColorChange(lineGreen, greenChange);
-          blueChange  = bounceColorChange(lineBlue, blueChange);
+          a += speed1;
 
           if (a > 300)
           {
-            speed = -10;
+            speed1 = -10;
           }
           else if (a < 0)
           {
-            speed = 10;
+            speed1 = 10;
           }
         };
 
