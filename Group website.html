@@ -27,7 +27,6 @@
 
             with (processing)
             {
-                //================ YOU MODIFY CODE IN THIS BLOCK =====================
 
                 var x10 = 0;
                 var x20 = canvasWidth;
@@ -58,25 +57,18 @@
                 {
                     stroke(Line30);
                     line(300,200, x10, 0);
-
                     stroke(Line30);
                     line(300,200, x10, canvasHeight);
-
                     //logo
                     image(logo,15,105);
-
                     stroke(Line20);
                     line(0, 200, x20, canvasHeight);
-
                     stroke(Line10);
                     line(canvasWidth, 200, x20, canvasHeight);
-
                     stroke(Line10);
                     line(0, 200, x20, 0);
-
                     stroke(Line20);
                     line(canvasWidth, 200, x20, 0);
-
 
                     x10 += speed0;
                     x20 -= speed0;
@@ -85,9 +77,6 @@
                     x50 -= speed0;
                     x60 += speed0;
 
-                    //text
-
-                    //=======================================================================
                     Line10 -= colorChange0;
                     Line20 += colorChange0;
                     Line30 += colorChange0;
@@ -111,10 +100,6 @@
                     }
                 };
 
-
-
-
-                //================ END OF MODIFY CODE BLOCK =====================
             }
             if (typeof draw !== 'undefined') processing.draw = draw;
         })
@@ -127,7 +112,6 @@
     </header>
     </body>
 <STYLE type="text/css">
-
 
 
 
@@ -188,7 +172,6 @@
 <br>Jon Created an array involving multiple sliders. He also created a link to the array.
 <li>Have Fun <a href="http://www.unm.edu/~jonsmashsolis/home.html">
     Jon's Link!</a></li>
-<br>
 <br>
 <em>Luke Maxwell</em>
     <br>
