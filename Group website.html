@@ -5,7 +5,7 @@
     <canvas style="image-rendering: -moz-crisp-edges ! important;" height="400" width="800" tabindex="0" id="canvas"></canvas>
     <script>
         var canvas = document.getElementById("canvas");
-        var canvasWidth  = 1400;
+        var canvasWidth  = 1300;
         var canvasHeight = 400;
         var processing = new Processing(canvas, function(processing)
         {
@@ -36,7 +36,7 @@
                 var x50 = 200;
                 var x60 = canvasWidth;
 
-                var speed0 = 20;
+                var speed0 = 60;
 
                 strokeWeight(2);
                 var red0   = color(255, 0, 0);
@@ -61,7 +61,7 @@
                     stroke(Line30);
                     line(300,200, x10, canvasHeight);
                     //logo
-                    image(logo,15,150);
+                    image(logo,245,105);
                     stroke(Line20);
                     line(0, 200, x20, canvasHeight);
                     stroke(Line10);
