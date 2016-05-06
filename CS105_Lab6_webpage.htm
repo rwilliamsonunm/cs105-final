@@ -16,7 +16,7 @@
 <canvas style="image-rendering: -moz-crisp-edges ! important;" height="400" width="600" tabindex="0" id="canvas"></canvas>
 <script>
     var canvas = document.getElementById("canvas");
-    var canvasWidth  = 600;
+    var canvasWidth  = 800;
     var canvasHeight = 400;
     var processing = new Processing(canvas, function(processing)
     {
@@ -61,8 +61,9 @@
           var Line40 = blue0;
 
           var colorChange0 = -100;
+          var logo = loadImage("Titledigitalarttrio.png");
 
-        background(5,5,5);
+          background(5,5,5);
         draw = function ()
 
             //colored lines
@@ -73,9 +74,8 @@
                 stroke(Line30);
                 line(300,200, x10, canvasHeight);
 
-            fill(white0);
-            rect(50,100,500,200);
-
+                //logo
+                image(logo,15,105);
 
                 stroke(Line20);
                 line(0, 200, x20, canvasHeight);

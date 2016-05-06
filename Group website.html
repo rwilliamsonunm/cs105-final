@@ -1,18 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <canvas style="image-rendering: -moz-crisp-edges ! important;" height="400" width="600" tabindex="0" id="canvas"></canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var canvasWidth  = 800;
+        var canvasHeight = 400;
+        var processing = new Processing(canvas, function(processing)
+        {
+            processing.size(canvasWidth, canvasHeight);
+            processing.background(0xFFF);
+
+
+            // Changes API to use degrees rather than radians in rotate and arc.
+            var rotateFn = processing.rotate;
+            processing.rotate = function (angle)
+            {
+                rotateFn(processing.radians(angle));
+            };
+            var arcDeg = processing.arc;
+            processing.arc = function (x, y, w, h, s, e)
+            {
+                arcDeg(x, y, w, h, s * (Math.PI / 180), e * (Math.PI / 180));
+            };
+
+
+            with (processing)
+            {
+                //================ YOU MODIFY CODE IN THIS BLOCK =====================
+
+                var x10 = 0;
+                var x20 = canvasWidth;
+                var x30 = canvasHeight;
+                var x40 = 300;
+                var x50 = 200;
+                var x60 = canvasWidth;
+
+                var speed0 = 20;
+
+                strokeWeight(2);
+                var red0   = color(255, 0, 0);
+                var blue0 = color(0, 0, 255);
+                var green0 = color(0, 255, 0);
+                var white0 = color(240,240,240);
+                var Line10 = red0;
+                var Line20 = green0;
+                var Line30 = white0;
+                var Line40 = blue0;
+
+                var colorChange0 = -100;
+                var logo = loadImage("Titledigitalarttrio.png");
+
+                background(5,5,5);
+                draw = function ()
+
+                    //colored lines
+                {
+                    stroke(Line30);
+                    line(300,200, x10, 0);
+
+                    stroke(Line30);
+                    line(300,200, x10, canvasHeight);
+
+                    //logo
+                    image(logo,15,105);
+
+                    stroke(Line20);
+                    line(0, 200, x20, canvasHeight);
+
+                    stroke(Line10);
+                    line(canvasWidth, 200, x20, canvasHeight);
+
+                    stroke(Line10);
+                    line(0, 200, x20, 0);
+
+                    stroke(Line20);
+                    line(canvasWidth, 200, x20, 0);
+
+
+                    x10 += speed0;
+                    x20 -= speed0;
+                    x30 += speed0;
+                    x40 -= speed0;
+                    x50 -= speed0;
+                    x60 += speed0;
+
+                    //text
+
+                    //=======================================================================
+                    Line10 -= colorChange0;
+                    Line20 += colorChange0;
+                    Line30 += colorChange0;
+
+                    if (x10 > canvasWidth)
+                    {
+                        speed0 = -6;
+                    }
+                    else if (x10 < 0)
+                    {
+                        speed0 = 6;
+                    }
+
+                    if (Line10 > 255)
+                    {
+                        colorChange0 = -6;
+                    }
+                    else if (Line10 < 0)
+                    {
+                        colorChange0 = 6;
+                    }
+                };
+
+
+
+
+                //================ END OF MODIFY CODE BLOCK =====================
+            }
+            if (typeof draw !== 'undefined') processing.draw = draw;
+        })
+    </script>
     <meta charset="UTF-8">
     <title>Digital Art Trio</title>
     </head>
     <body>
     <header>
-        <img src="Digital Art Trio.png"/>
     </header>
     </body>
+<STYLE type="text/css">
 
 
-    <STYLE type="text/css">
-        body {
+
+
+
+
+
+
+
+
+
+
+
+
+
+    body {
             background-image: url("blue.jpg");
             background-repeat:no-repeat;
             background-size:200%;
